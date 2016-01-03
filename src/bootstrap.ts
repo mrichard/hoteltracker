@@ -1,10 +1,23 @@
+// Polyfills
+import 'angular2/bundles/angular2-polyfills.js';
+
+// Angular 2
+import 'angular2/platform/browser';
+import 'angular2/platform/common_dom';
+import 'angular2/core';
+import 'angular2/router';
+import 'angular2/http';
+
+// RxJS
+import 'rxjs';
+
 import {bootstrap} from 'angular2/platform/browser';
 import {ROUTER_PROVIDERS} from 'angular2/router';
 import {HTTP_PROVIDERS} from 'angular2/http';
 // include for development builds
 import {ELEMENT_PROBE_PROVIDERS} from 'angular2/platform/common_dom';
 // include for production builds
-// import {enableProdMode} from 'angular2/core';
+import {enableProdMode} from 'angular2/core';
 
 /*
  * App Component
@@ -16,7 +29,7 @@ import {App} from './app/app';
  * Bootstrap our Angular app with a top level component `App` and inject
  * our Services and Providers into Angular's dependency injection
  */
-// enableProdMode() // include for production builds
+enableProdMode() // include for production builds
 function main() {
   return bootstrap(App, [
     // These are dependencies of our App
@@ -27,4 +40,6 @@ function main() {
     .catch(err => console.error(err));
 }
 
+
+main();
 document.addEventListener('DOMContentLoaded', main);

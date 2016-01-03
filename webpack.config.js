@@ -45,7 +45,6 @@ module.exports = (function makeWebpackConfig() {
      * Reference: http://webpack.github.io/docs/configuration.html#entry
      */
     config.entry = TEST ? {} : {
-        'vendor': './src/vendor.ts',
         'app': './src/bootstrap.ts' // our angular app
     };
 
@@ -56,8 +55,7 @@ module.exports = (function makeWebpackConfig() {
     config.output = TEST ? {} : {
         path: root('dist'),
         publicPath: '/',
-        filename: 'js/[name].js',
-        chunkFilename: BUILD ? '[id].chunk.js?[hash]' : '[id].chunk.js'
+        filename: 'js/bundle.js'
     };
 
     /**
@@ -146,20 +144,7 @@ module.exports = (function makeWebpackConfig() {
 
     if(!TEST) {
         config.plugins.push(
-            // Generate common chunks if necessary
-            // Reference: https://webpack.github.io/docs/code-splitting.html
-            // Reference: https://webpack.github.io/docs/list-of-plugins.html#commonschunkplugin
-            new CommonsChunkPlugin({
-                name: 'vendor',
-                filename: 'js/[name].js',
-                minChunks: Infinity
-            }),
-            new CommonsChunkPlugin({
-                name: 'common',
-                filename: 'js/[name].js',
-                minChunks: 2,
-                chunks: ['app', 'vendor']
-            }),
+
 
             // Inject paths into html files
             // Reference: https://github.com/ampedandwired/html-webpack-plugin
@@ -167,30 +152,12 @@ module.exports = (function makeWebpackConfig() {
                 template: './src/public/index.html',
                 inject: 'body',
                 hash: true, // inject ?hash at the end of the files
-                chunksSortMode: function compare(a, b) {
-                    // common always first
-                    if(a.names[0] === 'common') {
-                        return -1;
-                    }
-                    // app always last
-                    if(a.names[0] === 'app') {
-                        return 1;
-                    }
-                    // vendor before app
-                    if(a.names[0] === 'vendor' && b.names[0] === 'app') {
-                        return -1;
-                    } else {
-                        return 1;
-                    }
-                    // a must be equal to b
-                    return 0;
-                }
             }),
 
             // Extract css files
             // Reference: https://github.com/webpack/extract-text-webpack-plugin
             // Disabled when in test mode or not in build mode
-            new ExtractTextPlugin('css/[name].css', {disable: !BUILD || TEST})
+            new ExtractTextPlugin('css/bundle.css', {disable: !BUILD || TEST})
         );
     }
 
