@@ -54,7 +54,7 @@ const options = {
 
 // db options
 const dbOptions = {
-    url: 'mongodb://database:27017/hotelrooms'
+    url: 'mongodb://database:27017/test'
 }
 
 server.register([
@@ -91,7 +91,18 @@ server.register([
             method: 'GET',
             path: '/hotel-rooms',
             handler: (request, reply) => {
-                reply('Here are hotel rooms');
+
+                const db = request.server.plugins['hapi-mongodb'].db;
+
+                db.collection('hotelrooms').find({}, (err, result) => {
+
+                    if (err) {
+                        server.log(['error'], 'Could not find all hotel rooms in mongo collection');
+                    };
+
+                    reply(result);
+                });
+
             },
             config: {
                 cors: {

@@ -1,0 +1,132 @@
+[{
+	"Dates": "May 4 - 8, 2016",
+	"Nights": "4",
+	"Room_Type": "Master Suite",
+	"Level": "Beach Level",
+	"Bedding": "KING SIZE BED + SINGLE DAY BED",
+	"AC": true,
+	"Rate_per_day": "$502.18",
+	"Total": "$2008.72",
+	"Reserved": false
+},
+{
+	"Dates": "May 4 - 8, 2016",
+	"Nights": "4",
+	"Room_Type": "Master Suite",
+	"Level": "Beach Level",
+	"Bedding": "KING SIZE BED",
+	"AC": true,
+	"Rate_per_day": "$502.18",
+	"Total": "$2008.72",
+	"Reserved": false
+},
+{
+	"Dates": "May 4 - 8, 2016",
+	"Nights": "4",
+	"Room_Type": "Master Suite",
+	"Level": "Top Floor",
+	"Bedding": "KING SIZE BED + FULL DAY BED",
+	"AC": false,
+	"Rate_per_day": "$454.58",
+	"Total": "$1818.32",
+	"Reserved": false
+},
+{
+	"Dates": "May 4 - 8, 2016",
+	"Nights": "4",
+	"Room_Type": "Master Suite",
+	"Level": "Beach Level",
+	"Bedding": "KING SIZE BED",
+	"AC": true,
+	"Rate_per_day": "$502.18",
+	"Total": "$2008.72",
+	"Reserved": false
+},
+{
+	"Dates": "May 4 - 8, 2016",
+	"Nights": "4",
+	"Room_Type": "Junior Suite - Ocean Front",
+	"Level": "Beach Level",
+	"Bedding": "TWO QUEEN BEDS",
+	"AC": true,
+	"Rate_per_day": "$335.58",
+	"Total": "$1342.32",
+	"Reserved": false
+},
+{
+	"Dates": "May 4 - 8, 2016",
+	"Nights": "4",
+	"Room_Type": "Junior Suite - Ocean Front",
+	"Level": "Top Floor",
+	"Bedding": "TWO FULL BEDS",
+	"AC": false,
+	"Rate_per_day": "$335.58",
+	"Total": "$1342.32",
+	"Reserved": false
+},
+{
+	"Dates": "May 4 - 8, 2016",
+	"Nights": "4",
+	"Room_Type": "Junior Suite - Garden View",
+	"Level": "Beach Level",
+	"Bedding": "KING SIZE BED",
+	"AC": true,
+	"Rate_per_day": "$264.18",
+	"Total": "$1056.72",
+	"Reserved": false
+},
+{
+	"Dates": "May 4 - 8, 2016",
+	"Nights": "4",
+	"Room_Type": "Junior Suite - Garden View",
+	"Level": "Top Floor",
+	"Bedding": "KING SIZE BED",
+	"AC": false,
+	"Rate_per_day": "$264.18",
+	"Total": "$1056.72",
+	"Reserved": false
+},
+{
+	"Dates": "May 4 - 8, 2016",
+	"Nights": "4",
+	"Room_Type": "Junior Suite - Ocean View",
+	"Level": "Beach Level",
+	"Bedding": "KING SIZE BED",
+	"AC": true,
+	"Rate_per_day": "$311.78",
+	"Total": "$1247.12",
+	"Reserved": false
+},
+{
+	"Dates": "May 4 - 8, 2016",
+	"Nights": "4",
+	"Room_Type": "Junior Suite - Ocean View",
+	"Level": "Top Floor",
+	"Bedding": "KING SIZE BED",
+	"AC": false,
+	"Rate_per_day": "$311.78",
+	"Total": "$1247.12",
+	"Reserved": false
+},
+{
+	"Dates": "May 4 - 8, 2016",
+	"Nights": "4",
+	"Room_Type": "Junior Suite - Garden View",
+	"Level": "Beach Level",
+	"Bedding": "KING SIZE BED",
+	"AC": true,
+	"Rate_per_day": "$287.98",
+	"Total": "$1151.92",
+	"Reserved": false
+},
+{
+	"Dates": "May 4 - 8, 2016",
+	"Nights": "4",
+	"Room_Type": "Garden Palapa",
+	"Level": "Top Floor",
+	"Bedding": "KING SIZE BED",
+	"AC": false,
+	"Rate_per_day": "$240.38",
+	"Total": "$961.52",
+	"Reserved": false
+}]

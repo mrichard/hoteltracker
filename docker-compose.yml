@@ -6,7 +6,7 @@ database:
     - /opt/mongodb:/data/db
 
 #application:
-#  image: mrichard/weddingapp:1
+#  image: mrichard/weddingapp:2
 #  ports:
 #    - "8080:8080"
 #  links:
