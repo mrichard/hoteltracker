@@ -28,6 +28,7 @@
     "good-console": "^5.2.0",
     "good-file": "^5.1.1",
     "hapi": "^11.1.4",
+    "hapi-mongodb": "^4.1.0",
     "inert": "^3.2.0",
     "reflect-metadata": "0.1.2",
     "rxjs": "5.0.0-beta.0",

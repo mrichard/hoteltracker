@@ -1,0 +1,13 @@
+database:
+  image: mongo
+  ports:
+    - "27017:27017"
+  volumes:
+    - /opt/mongodb:/data/db
+
+#application:
+#  image: mrichard/weddingapp:1
+#  ports:
+#    - "8080:8080"
+#  links:
+#    - database

@@ -13,7 +13,7 @@ const server = new Hapi.Server({
     }
 });
 
-server.connection({ port: 3000 });
+server.connection({ port: 8080 });
 
 // logging options
 const options = {
@@ -24,8 +24,7 @@ const options = {
             events: {
                 log: '*',
                 response: '*',
-                request: '*',
-                ops: '*'
+                request: '*'
             }
         },
         {
@@ -33,8 +32,7 @@ const options = {
             events: {
                 log: '*',
                 response: '*',
-                request: '*',
-                ops: '*'
+                request: '*'
             },
             config: {
                 path: './logs',
@@ -54,6 +52,11 @@ const options = {
     ]
 };
 
+// db options
+const dbOptions = {
+    url: 'mongodb://database:27017/hotelrooms'
+}
+
 server.register([
     {
         register: require('good'),
@@ -61,6 +64,10 @@ server.register([
     },
     {
         register: require('inert')
+    },
+    {
+        register: require('hapi-mongodb'),
+        options: dbOptions
     }
 ], (err) => {
 
