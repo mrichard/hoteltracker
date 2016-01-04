@@ -86,23 +86,120 @@ server.register([
             }
         });
 
-        // hotel room routes
+        // all hotel rooms, with optional queries
         server.route({
             method: 'GET',
             path: '/hotel-rooms',
             handler: (request, reply) => {
 
                 const db = request.server.plugins['hapi-mongodb'].db;
+                let query = {};
 
-                db.collection('hotelrooms').find({}, (err, result) => {
+                // if reserved query parameter
+                if (request.query.reserved) {
+                    query.reserved = request.query.reserved;
+                }
+
+                // if ac query parameter
+                if (request.query.ac) {
+                    query.ac = request.query.ac;
+                }
+
+                db.collection('hotelrooms').find(query).toArray((err, result) => {
 
                     if (err) {
                         server.log(['error'], 'Could not find all hotel rooms in mongo collection');
-                    };
+                    }
 
                     reply(result);
                 });
 
+            },
+            config: {
+                cors: {
+                    origin: ['http://mike-and-jenn.com']
+                }
+            }
+        });
+
+        // a hotel room
+        server.route({
+            method: 'GET',
+            path: '/hotel-rooms/{id}',
+            handler: (request, reply) => {
+
+                const db = request.server.plugins['hapi-mongodb'].db;
+                const ObjectID = request.server.plugins['hapi-mongodb'].ObjectID;
+
+                db.collection('hotelrooms').findOne({
+                    '_id': new ObjectID(request.params.id)
+                }, (err, result) => {
+
+                    if (err) {
+                        server.log(['error'], 'Could not find hotel room with id: ' + request.params.id);
+                    }
+
+                    reply(result);
+                });
+
+            },
+            config: {
+                cors: {
+                    origin: ['http://mike-and-jenn.com']
+                }
+            }
+        });
+
+        // reserve a hotel room
+        server.route({
+            method: ['PUT', 'POST', 'GET'],
+            path: '/hotel-rooms/{id}/reserve',
+            handler: (request, reply) => {
+
+                const db = request.server.plugins['hapi-mongodb'].db;
+                const ObjectID = request.server.plugins['hapi-mongodb'].ObjectID;
+
+                db.collection('hotelrooms').updateOne({
+                    '_id': new ObjectID(request.params.id)
+                }, {
+                    $set: { 'Reserved': true }
+                }, (err, result) => {
+
+                    if (err) {
+                        server.log(['error'], 'Error updating reserved status for hotel room with id: ' + request.params.id);
+                    }
+
+                    reply(result);
+                });
+            },
+            config: {
+                cors: {
+                    origin: ['http://mike-and-jenn.com']
+                }
+            }
+        });
+
+        // unreserve a hotel room
+        server.route({
+            method: ['PUT', 'POST', 'GET'],
+            path: '/hotel-rooms/{id}/unreserve',
+            handler: (request, reply) => {
+
+                const db = request.server.plugins['hapi-mongodb'].db;
+                const ObjectID = request.server.plugins['hapi-mongodb'].ObjectID;
+
+                db.collection('hotelrooms').updateOne({
+                    '_id': new ObjectID(request.params.id)
+                }, {
+                    $set: { 'Reserved': false }
+                }, (err, result) => {
+
+                    if (err) {
+                        server.log(['error'], 'Error updating reserved status for hotel room with id: ' + request.params.id);
+                    }
+
+                    reply(result);
+                });
             },
             config: {
                 cors: {
