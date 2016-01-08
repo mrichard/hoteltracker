@@ -11,5 +11,5 @@ application:
     - "8080:8080"
   links:
     - database
-  volumes:
-    - ./server/server.js:/usr/src/app/server/server.js
+  #volumes:
+  #  - ./server/server.js:/usr/src/app/server/server.js
