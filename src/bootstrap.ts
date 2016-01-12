@@ -12,34 +12,30 @@ import 'angular2/http';
 import 'rxjs';
 
 import {bootstrap} from 'angular2/platform/browser';
-import {ROUTER_PROVIDERS} from 'angular2/router';
 import {HTTP_PROVIDERS} from 'angular2/http';
 // include for development builds
 import {ELEMENT_PROBE_PROVIDERS} from 'angular2/platform/common_dom';
 // include for production builds
-import {enableProdMode} from 'angular2/core';
+// import {enableProdMode} from 'angular2/core';
 
 /*
- * App Component
+ * Root Component
  * our top level component that holds all of our components
  */
-import {App} from './app/app';
+import {Root} from './app/Root';
 
 /*
- * Bootstrap our Angular app with a top level component `App` and inject
+ * Bootstrap our Angular app with a top level component `Root` and inject
  * our Services and Providers into Angular's dependency injection
  */
-enableProdMode() // include for production builds
+// enableProdMode() // include for production builds
 function main() {
-  return bootstrap(App, [
+  return bootstrap(Root, [
     // These are dependencies of our App
     HTTP_PROVIDERS,
-    ROUTER_PROVIDERS,
     ELEMENT_PROBE_PROVIDERS // remove in production
   ])
     .catch(err => console.error(err));
 }
 
-
-main();
 document.addEventListener('DOMContentLoaded', main);
